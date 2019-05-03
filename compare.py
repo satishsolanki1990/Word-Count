@@ -1,17 +1,23 @@
+
+# give file name thru command line
+
 from sys import argv
 import re
 if len(argv)==3:
     count=0
     a=set()
+	# read the text book 1 
     with open(argv[1],'r') as f1:
         for line in f1:
-            s= re.sub(r'[^\w\s]',' ',line)
-            word=s.split()
-            count+=len(word)
-            for i in word:
+            s= re.sub(r'[^\w\s]',' ',line) # replace all alphanumeric letters with space
+            word=s.split() # convert into list
+            count+=len(word) # count no of words in list
+            for i in word: # convert into case insensitive and add to dictionary
                 a.add(i.casefold())
     print('\n%s: \n   %d words \n   Unique: %d ' %(argv[1],count, len(a)))
-    count=0
+
+	# read the text book 1     
+	count=0
     b=set()
     with open(argv[2],'r') as f2:
         for line in f2:        
